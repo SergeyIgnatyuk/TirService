@@ -42,4 +42,6 @@ public class Vehicle {
     @OneToMany(fetch = FetchType.LAZY)
     @JoinColumn(name = "vehicle_id")
     private Set<Order> orders = new HashSet<>();
+
+    private Employee employee;
 }

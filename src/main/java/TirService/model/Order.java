@@ -7,6 +7,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Data
 @AllArgsConstructor
@@ -23,6 +24,10 @@ public class Order {
     @Column(name = "service")
     private String service;
 
+    private Date startTime;
+
+    private Date endTime;
+
     @Column(name = "vehicle_id")
     @JsonIgnore
     private Long vehicleId;
@@ -31,7 +36,4 @@ public class Order {
     @JsonIgnore
     private Long employeeId;
 
-    @Column(name = "calendar_id")
-    @JsonIgnore
-    private Long calendarId;
 }

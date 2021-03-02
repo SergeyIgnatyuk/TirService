@@ -48,12 +48,9 @@ public class Employee {
     @JsonIgnore
     private Long departmentId;
 
-    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinTable(name = "calendar_employee", joinColumns = @JoinColumn(name = "employee_id"),
-            inverseJoinColumns = @JoinColumn(name = "calendar_id"))
-    private Set<Calendar> calendarSet = new HashSet<>();
-
     @OneToMany(fetch = FetchType.LAZY)
     @JoinColumn(name = "employee_id")
     private Set<Order> orders = new HashSet<>();
+
+    private Vehicle vehicle;
 }
