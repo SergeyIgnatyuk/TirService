@@ -50,7 +50,9 @@ public class Employee {
 
     @OneToMany(fetch = FetchType.LAZY)
     @JoinColumn(name = "employee_id")
-    private Set<Order> orders = new HashSet<>();
+    private Set<ServiceOrder> serviceOrders = new HashSet<>();
 
-    private Vehicle vehicle;
+    @OneToMany(fetch = FetchType.LAZY)
+    @JoinColumn(name = "employee_id")
+    private Set<Vehicle> vehicles = new HashSet<>();
 }

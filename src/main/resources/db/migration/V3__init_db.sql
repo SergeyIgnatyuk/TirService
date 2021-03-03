@@ -1,11 +1,3 @@
--- INSERT VEHICLES
-insert into vehicles (model, number, vin, year_of_issue)
-values ('DAF FT XF 105.460', 'AK 0595-1', 'XLRTE47MS0E995531', 2013);
-insert into vehicles (model, number, vin, year_of_issue)
-values ('DAF FT XF 105.460', 'AK 5261-1', 'XLRTE47MS0G029427', 2014);
-insert into vehicles (model, number, vin, year_of_issue)
-values ('DAF FT XF 105.460', 'AK 9427-1', 'XLRTE47MS0G076924', 2015);
-
 -- INSERT DEPARTMENTS
 insert into departments (name, description, phone_number, date_of_formation)
 values ('Logistics Department', 'logistics, expedition, planning', '+375336446244', '2008-03-15');
@@ -49,14 +41,14 @@ insert into employees (full_name, date_of_birth, phone_number, email_address, po
                        department_id)
 values ('Savchuk Alexandr', '1985-11-26', '+375298102912', 'info@yuridan.by', 'master', '2019-04-11', 2);
 insert into employees (full_name, date_of_birth, phone_number, email_address, position, date_of_employment,
-                       department_id, vehicle_id)
-values ('Bobkov Evgeny', '1994-01-26', '+375298502341', 'info@yuridan.by', 'driver', '2020-04-14', 2, 1);
+                       department_id)
+values ('Bobkov Evgeny', '1994-01-26', '+375298502341', 'info@yuridan.by', 'driver', '2020-04-14', 2);
 insert into employees (full_name, date_of_birth, phone_number, email_address, position, date_of_employment,
-                       department_id, vehicle_id)
-values ('Bonushko Pavel', '1993-08-03', '+375333516571', 'info@yuridan.by', 'driver', '2019-06-06', 2, 2);
+                       department_id)
+values ('Bonushko Pavel', '1993-08-03', '+375333516571', 'info@yuridan.by', 'driver', '2019-06-06', 2);
 insert into employees (full_name, date_of_birth, phone_number, email_address, position, date_of_employment,
-                       department_id, vehicle_id)
-values ('Brishtel Alexandr', '1985-06-13', '+375336088684', 'info@yuridan.by', 'driver', '2019-07-18', 2, 3);
+                       department_id)
+values ('Brishtel Alexandr', '1985-06-13', '+375336088684', 'info@yuridan.by', 'driver', '2019-07-18', 2);
 insert into employees (full_name, date_of_birth, phone_number, email_address, position, date_of_employment,
                        department_id)
 values ('Valushko Alexei', '1988-05-13', '+375298337408', 'info@yuridan.by', 'driver', '2020-11-25', 2);
@@ -64,16 +56,24 @@ insert into employees (full_name, date_of_birth, phone_number, email_address, po
                        department_id)
 values ('Venzelev Alexander', '1976-08-02', '+375333718378', 'info@yuridan.by', 'driver', '2018-12-13', 2);
 
+-- INSERT VEHICLES
+insert into vehicles (model, number, vin, year_of_issue, employee_id)
+values ('DAF FT XF 105.460', 'AK 0595-1', 'XLRTE47MS0E995531', 2013, 12);
+insert into vehicles (model, number, vin, year_of_issue, employee_id)
+values ('DAF FT XF 105.460', 'AK 5261-1', 'XLRTE47MS0G029427', 2014, 13);
+insert into vehicles (model, number, vin, year_of_issue, employee_id)
+values ('DAF FT XF 105.460', 'AK 9427-1', 'XLRTE47MS0G076924', 2015, 14);
+
 -- INSERT ORDERS
-insert into service_order (service_name, start_time, end_time, vehicle_id, employee_id)
+insert into service_orders (service_name, start_time, end_time, vehicle_id, employee_id)
 values ('tire fitting', '2020-04-01T08:30', '2020-04-01T09:30', 1, 10);
-insert into service_order (service_name, start_time, end_time, vehicle_id, employee_id)
+insert into service_orders (service_name, start_time, end_time, vehicle_id, employee_id)
 values ('car wash', '2020-04-01T09:30', '2020-04-01T10:30', 1, 11);
-insert into service_order (service_name, start_time, end_time, vehicle_id, employee_id)
+insert into service_orders (service_name, start_time, end_time, vehicle_id, employee_id)
 values ('tire fitting', '2020-04-01T09:30', '2020-04-01T10:30', 2, 10);
-insert into service_order (service_name, start_time, end_time, vehicle_id, employee_id)
+insert into service_orders (service_name, start_time, end_time, vehicle_id, employee_id)
 values ('car wash', '2020-04-01T08:30', '2020-04-01T09:30', 2, 11);
-insert into service_order (service_name, start_time, end_time, vehicle_id, employee_id)
+insert into service_orders (service_name, start_time, end_time, vehicle_id, employee_id)
 values ('tire fitting', '2020-04-01T10:30', '2020-04-01T11:30', 3, 10);
-insert into service_order (service_name, start_time, end_time, vehicle_id, employee_id)
+insert into service_orders (service_name, start_time, end_time, vehicle_id, employee_id)
 values ('car wash', '2020-04-01T11:30', '2020-04-01T12:30', 3, 11);

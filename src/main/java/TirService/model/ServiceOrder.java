@@ -14,18 +14,20 @@ import java.util.Date;
 @NoArgsConstructor
 @Builder
 @Entity
-@Table(name = "orders")
-public class Order {
+@Table(name = "service_orders")
+public class ServiceOrder {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "service")
+    @Column(name = "service_name")
     private String service;
 
+    @Column(name = "start_time")
     private Date startTime;
 
+    @Column(name = "end_time")
     private Date endTime;
 
     @Column(name = "vehicle_id")

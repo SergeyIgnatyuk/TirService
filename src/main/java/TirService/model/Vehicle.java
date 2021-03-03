@@ -33,15 +33,10 @@ public class Vehicle {
     @Column(name = "year_of_issue")
     private int yearOfIssue;
 
-    @Column(name = "driver_name")
-    private String driverName;
-
-    @Column(name = "driver_phone")
-    private String driverPhone;
+    @Column(name = "employee_id")
+    private Long employeeId;
 
     @OneToMany(fetch = FetchType.LAZY)
     @JoinColumn(name = "vehicle_id")
-    private Set<Order> orders = new HashSet<>();
-
-    private Employee employee;
+    private Set<ServiceOrder> serviceOrders = new HashSet<>();
 }
