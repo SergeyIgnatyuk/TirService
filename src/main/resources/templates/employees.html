@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Employees</title>
+    <link rel="stylesheet" type="text/css" href="/css/style.css" data-th-href="@{/css/style.css}">
+</head>
+<body>
+<header class="header">
+    <div class="logo">
+        <h1>Y U R I D A N<br></h1>
+        <p>TIR service</p>
+    </div>
+    <nav>
+        <ul class="main-menu">
+            <li><a href="/">Home</a></li>
+            <li><a href="/employees.html" data-th-href="@{/employees}">Employees</a></li>
+            <li><a href="/departments">Departments</a></li>
+            <li><a href="/vehicles">Vehicles</a></li>
+            <li><a href="/orders">Orders</a></li>
+            <li><a href="#contacts">Contacts</a></li>
+        </ul>
+    </nav>
+</header>
+<main class="content">
+    <table class="employees">
+        <caption><h2>E M P L O Y E E S</h2> &nbsp; table</caption>
+        <tr>
+            <th>I D</th>
+            <th>F u l l &nbsp; N a m e</th>
+            <th>D a t e &nbsp; O f &nbsp; B i r t h</th>
+            <th>P h o n e &nbsp; N u m b e r</th>
+            <th>E m a i l &nbsp; A d d r e s s</th>
+            <th>P o s i t i o n</th>
+            <th>D a t e &nbsp; o f &nbsp; E m p l o y m e n t</th>
+        </tr>
+        <tr data-th-each="employee: ${employees}">
+            <td data-th-text="${employee.id}"/>
+            <td data-th-text="${employee.fullName}"/>
+            <td data-th-text="${employee.dateOfBirth}"/>
+            <td data-th-text="${employee.phoneNumber}"/>
+            <td data-th-text="${employee.emailAddress}"/>
+            <td data-th-text="${employee.position}"/>
+            <td data-th-text="${employee.dateOfEmployment}"/>
+        </tr>
+    </table>
+</main>
+<footer>
+    <h3 id="contacts">C O N T A C T S</h3>
+</footer>
+</body>
+</html>
