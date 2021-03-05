@@ -1,0 +1,24 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+</head>
+<body>
+<div th:fragment="header">
+    <header class="header">
+        <div class="logo">
+            <h1>Y U R I D A N<br></h1>
+            <p>TIR service</p>
+        </div>
+        <nav>
+            <ul class="main-menu">
+                <li><a th:href="@{/}">Home</a></li>
+                <li><a th:href="@{/employees}">Employees</a></li>
+                <li><a th:href="@{/departments}">Departments</a></li>
+                <li><a th:href="@{/vehicles}">Vehicles</a></li>
+                <li><a th:href="@{/orders}">Orders</a></li>
+                <li><a href="#contacts">Contacts</a></li>
+            </ul>
+        </nav>
+    </header>
+</div>
+</body>
+</html>

@@ -1,26 +1,11 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Home</title>
-    <link rel="stylesheet" type="text/css" href="/css/style.css" data-th-href="@{/css/style.css}">
+    <link rel="stylesheet" type="text/css" href="/css/style.css" th:href="@{/css/style.css}">
 </head>
 <body>
-<header class="header">
-    <div class="logo">
-        <h1>Y U R I D A N<br></h1>
-        <p>TIR service</p>
-    </div>
-    <nav>
-        <ul class="main-menu">
-            <li><a href="/index.html" data-th-href="@{/index}">Home</a></li>
-            <li><a href="/employees.html" data-th-href="@{/employees}">Employees</a></li>
-            <li><a href="/departments.html">Departments</a></li>
-            <li><a href="/vehicles.html">Vehicles</a></li>
-            <li><a href="/orders.html">Orders</a></li>
-            <li><a href="#contacts">Contacts</a></li>
-        </ul>
-    </nav>
-</header>
+<div th:replace="fragments/header :: header"/>
 <main class="content">
     <h2>W E L C O M E<br></h2>
     <p>to home page</p>
