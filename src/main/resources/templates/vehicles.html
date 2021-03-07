@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Vehicles</title>
+    <link rel="stylesheet" type="text/css" href="/css/style.css" th:href="@{/css/style.css}">
+</head>
+<body>
+<div th:replace="fragments/header :: header"/>
+<main class="content">
+    <table class="vehicles">
+        <caption><h2>V E H I C L E S</h2> &nbsp; table</caption>
+        <tr>
+            <th>I D</th>
+            <th>N U M B E R</th>
+            <th>M O D E L</th>
+            <th>V I N</th>
+            <th>Y E A R &nbsp; O F &nbsp; I S S U E</th>
+        </tr>
+        <tr th:each="vehicle: ${vehicles}">
+            <td th:text="${vehicle.id}"/>
+            <td th:text="${vehicle.number}"/>
+            <td th:text="${vehicle.model}"/>
+            <td th:text="${vehicle.vin}"/>
+            <td th:text="${vehicle.yearOfIssue}"/>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td><a th:href="@{/vehicles/new}">Add New</a></td>
+        </tr>
+    </table>
+</main>
+<div th:replace="fragments/footer :: footer"/>
+</body>
+</html>

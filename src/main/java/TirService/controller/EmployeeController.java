@@ -1,12 +1,12 @@
 package TirService.controller;
 
+import TirService.model.Employee;
 import TirService.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
 @RequestMapping("/employees")
@@ -23,5 +23,11 @@ public class EmployeeController {
     public String getAllEmployees(ModelMap modelMap) {
         modelMap.addAttribute("employees", employeeService.getAllEmployees());
         return "/employees";
+    }
+
+    @GetMapping("/new")
+    public String getNewEmployeeForm(ModelMap modelMap) {
+        modelMap.addAttribute("employee", Employee.builder().build());
+        return "/newEmployee";
     }
 }

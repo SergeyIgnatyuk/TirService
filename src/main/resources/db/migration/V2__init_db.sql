@@ -65,15 +65,15 @@ insert into vehicles (model, number, vin, year_of_issue, employee_id)
 values ('DAF FT XF 105.460', 'AK 9427-1', 'XLRTE47MS0G076924', 2015, 14);
 
 -- INSERT ORDERS
-insert into service_orders (service_name, start_time, end_time, vehicle_id, employee_id)
+insert into orders (service_name, start_time, end_time, vehicle_id, employee_id)
 values ('tire fitting', '2020-04-01T08:30', '2020-04-01T09:30', 1, 10);
-insert into service_orders (service_name, start_time, end_time, vehicle_id, employee_id)
+insert into orders (service_name, start_time, end_time, vehicle_id, employee_id)
 values ('car wash', '2020-04-01T09:30', '2020-04-01T10:30', 1, 11);
-insert into service_orders (service_name, start_time, end_time, vehicle_id, employee_id)
+insert into orders (service_name, start_time, end_time, vehicle_id, employee_id)
 values ('tire fitting', '2020-04-01T09:30', '2020-04-01T10:30', 2, 10);
-insert into service_orders (service_name, start_time, end_time, vehicle_id, employee_id)
+insert into orders (service_name, start_time, end_time, vehicle_id, employee_id)
 values ('car wash', '2020-04-01T08:30', '2020-04-01T09:30', 2, 11);
-insert into service_orders (service_name, start_time, end_time, vehicle_id, employee_id)
+insert into orders (service_name, start_time, end_time, vehicle_id, employee_id)
 values ('tire fitting', '2020-04-01T10:30', '2020-04-01T11:30', 3, 10);
-insert into service_orders (service_name, start_time, end_time, vehicle_id, employee_id)
+insert into orders (service_name, start_time, end_time, vehicle_id, employee_id)
 values ('car wash', '2020-04-01T11:30', '2020-04-01T12:30', 3, 11);

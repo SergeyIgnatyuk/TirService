@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Orders</title>
+    <link rel="stylesheet" type="text/css" href="/css/style.css" th:href="@{/css/style.css}">
+</head>
+<body>
+<div th:replace="fragments/header :: header"/>
+<main class="content">
+    <table class="orders">
+        <caption><h2>O R D E R S</h2> &nbsp; table</caption>
+        <tr>
+            <th>I D</th>
+            <th>S E R V I C E</th>
+            <th>S T A R T &nbsp; T I M E</th>
+            <th>E N D &nbsp; T I M E</th>
+        </tr>
+        <tr th:each="order: ${orders}">
+            <td th:text="${order.id}"/>
+            <td th:text="${order.service}"/>
+            <td th:text="${order.startTime}"/>
+            <td th:text="${order.endTime}"/>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td><a th:href="@{/orders/new}">Add New</a></td>
+        </tr>
+    </table>
+</main>
+<div th:replace="fragments/footer :: footer"/>
+</body>
+</html>

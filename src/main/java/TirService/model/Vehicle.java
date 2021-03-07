@@ -38,5 +38,5 @@ public class Vehicle {
 
     @OneToMany(fetch = FetchType.LAZY)
     @JoinColumn(name = "vehicle_id")
-    private Set<ServiceOrder> serviceOrders = new HashSet<>();
+    private Set<Order> orders = new HashSet<>();
 }

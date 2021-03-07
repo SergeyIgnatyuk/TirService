@@ -1,5 +1,5 @@
-<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Employees</title>
     <link rel="stylesheet" type="text/css" href="/css/style.css" th:href="@{/css/style.css}">
@@ -38,8 +38,6 @@
         </tr>
     </table>
 </main>
-<footer>
-    <h3 id="contacts">C O N T A C T S</h3>
-</footer>
+<div th:replace="fragments/footer :: footer"/>
 </body>
 </html>
