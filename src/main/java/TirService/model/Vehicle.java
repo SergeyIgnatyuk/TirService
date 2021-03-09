@@ -31,7 +31,7 @@ public class Vehicle {
     private String vin;
 
     @Column(name = "year_of_issue")
-    private int yearOfIssue;
+    private String yearOfIssue;
 
     @Column(name = "employee_id")
     private Long employeeId;

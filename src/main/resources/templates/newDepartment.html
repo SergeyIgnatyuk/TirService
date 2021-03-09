@@ -3,11 +3,25 @@
 <head>
     <title>New Department</title>
     <link rel="stylesheet" type="text/css" href="/css/style.css" th:href="@{/css/style.css}">
+    <link rel="stylesheet" type="text/css" href="/css/newForm.css" th:href="@{/css/newForm.css}">
 </head>
 <body>
 <div th:replace="fragments/header :: header"/>
 <main class="content">
+    <div class="container">
+        <form action="#" th:action="@{/departments/new}" th:object="${department}" method="post">
+            <h3>N E W &nbsp; D E P A R T M E N T</h3>
+            <input type="text" th:field="*{name}" placeholder="Name" autofocus required/>
 
+            <input type="text" th:field="*{description}" placeholder="Description" required/>
+
+            <input type="text" th:field="*{phoneNumber}" placeholder="Phone Number" required/>
+
+            <input type="text" th:field="*{dateOfFormation}" placeholder="Date Of Formation: yyyy/MM/dd" required/>
+
+            <input type="submit" value="S U B M I T">
+        </form>
+    </div>
 </main>
 <div th:replace="fragments/footer :: footer"/>
 </body>

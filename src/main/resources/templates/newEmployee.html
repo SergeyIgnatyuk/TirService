@@ -3,11 +3,29 @@
 <head>
     <title>New Employee</title>
     <link rel="stylesheet" type="text/css" href="/css/style.css" th:href="@{/css/style.css}">
+    <link rel="stylesheet" type="text/css" href="/css/newForm.css" th:href="@{/css/newForm.css}">
 </head>
 <body>
 <div th:replace="fragments/header :: header"/>
 <main class="content">
+    <div class="container">
+        <form action="#" th:action="@{/employees/new}" th:object="${employee}" method="post">
+            <h3>N E W &nbsp; E M P L O Y E E</h3>
+            <input type="text" th:field="*{fullName}" placeholder="Full Name" autofocus required/>
 
+            <input type="text" th:field="*{dateOfBirth}" placeholder="Date Of Birth: yyyy/MM/dd" required/>
+
+            <input type="text" th:field="*{phoneNumber}" placeholder="Phone Number" required/>
+
+            <input type="text" th:field="*{emailAddress}" placeholder="Email Address" required/>
+
+            <input type="text" th:field="*{position}" placeholder="Position" required/>
+
+            <input type="text" th:field="*{dateOfEmployment}" placeholder="Date Of Employment: yyyy/MM/dd" required/>
+
+            <input type="submit" value="S U B M I T">
+        </form>
+    </div>
 </main>
 <div th:replace="fragments/footer :: footer"/>
 </body>

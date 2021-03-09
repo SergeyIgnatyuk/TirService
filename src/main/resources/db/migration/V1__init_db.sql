@@ -30,7 +30,7 @@ CREATE TABLE vehicles
     model         varchar(255) not null,
     number        varchar(255) not null unique,
     vin           varchar(255) not null unique,
-    year_of_issue int4         not null,
+    year_of_issue text         not null,
     employee_id   int8 default null,
 
     primary key (id),
