@@ -29,4 +29,10 @@ public class DepartmentServiceImpl implements DepartmentService {
     public void createDepartment(Department department) {
         departmentRepository.save(department);
     }
+
+    @Override
+    @Transactional
+    public Department getDepartmentById(Long id) {
+        return departmentRepository.getOne(id);
+    }
 }

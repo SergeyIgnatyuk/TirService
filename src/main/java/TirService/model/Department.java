@@ -9,7 +9,9 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import java.util.Date;
 import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 @Data
 @Builder
@@ -38,7 +40,7 @@ public class Department {
 
     @OneToMany(fetch = FetchType.LAZY)
     @JoinColumn(name = "department_id")
-    private Set<Employee> employees = new HashSet<>();
+    private Set<Employee> employees = new HashSet<Employee>();
 
     @PreRemove
     private void deleteDepartmentFromEmployee() {

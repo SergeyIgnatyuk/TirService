@@ -8,10 +8,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.Validator;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.stream.Collectors;
 
 @Controller
 @RequestMapping("/departments")
@@ -32,8 +31,14 @@ public class DepartmentController {
         return "/departments";
     }
 
+    @GetMapping("/{id}")
+    public String getDepartmentById(@PathVariable Long id, ModelMap modelMap) {
+        modelMap.addAttribute("department", departmentService.getDepartmentById(id));
+        return "/department";
+    }
+
     @GetMapping("/new")
-    public  String getNewDepartmentForm(ModelMap modelMap) {
+    public String getNewDepartmentForm(ModelMap modelMap) {
         modelMap.addAttribute("department", Department.builder().build());
         return "/newDepartment";
     }
