@@ -26,13 +26,19 @@ public class DepartmentServiceImpl implements DepartmentService {
 
     @Override
     @Transactional
+    public Department getDepartmentById(Long id) {
+        return departmentRepository.getOne(id);
+    }
+
+    @Override
+    @Transactional
     public void createDepartment(Department department) {
         departmentRepository.save(department);
     }
 
     @Override
     @Transactional
-    public Department getDepartmentById(Long id) {
-        return departmentRepository.getOne(id);
+    public void deleteDepartmentById(Long id) {
+        departmentRepository.deleteById(id);
     }
 }

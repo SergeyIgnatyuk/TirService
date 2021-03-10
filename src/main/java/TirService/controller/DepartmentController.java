@@ -10,8 +10,6 @@ import org.springframework.validation.BindingResult;
 import org.springframework.validation.Validator;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.stream.Collectors;
-
 @Controller
 @RequestMapping("/departments")
 public class DepartmentController {
@@ -50,6 +48,12 @@ public class DepartmentController {
             return "/newDepartment";
         }
         departmentService.createDepartment(department);
+        return "redirect:/departments";
+    }
+
+    @DeleteMapping("/{id}")
+    public String deleteDepartmentById(@PathVariable Long id) {
+        departmentService.deleteDepartmentById(id);
         return "redirect:/departments";
     }
 }
