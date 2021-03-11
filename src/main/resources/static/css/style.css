@@ -46,6 +46,14 @@ body {
     color: #41835d;
 }
 
+.article {
+    text-align: center;
+}
+
+.department {
+
+}
+
 .content {
     margin: 100px auto;
     text-align: center;

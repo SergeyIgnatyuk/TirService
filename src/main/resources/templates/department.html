@@ -6,24 +6,13 @@
 </head>
 <body>
 <div th:replace="fragments/header :: header"/>
-<main class="content">
-<!--    <table class="departments">-->
-<!--        <caption><h2>D E P A R T M E N T S</h2> &nbsp; table</caption>-->
-<!--        <tr>-->
-<!--            <th>I D</th>-->
-<!--            <th>N a m e</th>-->
-<!--            <th>D e s c r i p t i o n</th>-->
-<!--            <th>P h o n e &nbsp; N u m b e r</th>-->
-<!--            <th>D a t e &nbsp; o f &nbsp; F o r m a t i o n</th>-->
-<!--        </tr>-->
-<!--        <tr>-->
-<!--            <td th:text="${department.id}"/>-->
-<!--            <td th:text="${department.name}"/>-->
-<!--            <td th:text="${department.description}"/>-->
-<!--            <td th:text="${department.phoneNumber}"/>-->
-<!--            <td th:text="${department.dateOfFormation}"/>-->
-<!--        </tr>-->
-<!--    </table>-->
+<div class="content">
+<h2 th:text="${department.name}"></h2>
+    <ul class="department">
+        <li th:text="${department.description}"></li>
+        <li th:text="${department.phoneNumber}"></li>
+        <li th:text="${department.dateOfFormation}"></li>
+    </ul>
 
     <table class="employees">
         <caption><h2>E M P L O Y E E S</h2>of the <span th:text="${department.name}"></span></caption>
@@ -55,7 +44,7 @@
             <td><a th:href="@{/employees/new}">Add New</a></td>
         </tr>
     </table>
-</main>
+</div>
 <div th:replace="fragments/footer :: footer"/>
 </body>
 </html>
