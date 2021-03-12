@@ -7,13 +7,20 @@
 <body>
 <div th:replace="fragments/header :: header"/>
 <div class="content">
-<h2 th:text="${department.name}"></h2>
+    <h2 th:text="${department.name}"></h2>
+
     <ul class="department">
         <li th:text="${department.description}"></li>
         <li th:text="${department.phoneNumber}"></li>
         <li th:text="${department.dateOfFormation}"></li>
+        <li>
+<!--            <form th:action="@{/departments/{id}(id = ${department.id})}" th:method="post">-->
+<!--                <input type="hidden" name="_method" value="delete">-->
+<!--                <input type="submit" value="D E L E T E">-->
+<!--            </form>-->
+            <a th:href="@{/departments/delete/{id}(id = ${department.id})}">delete</a>
+        </li>
     </ul>
-
     <table class="employees">
         <caption><h2>E M P L O Y E E S</h2>of the <span th:text="${department.name}"></span></caption>
         <tr>
