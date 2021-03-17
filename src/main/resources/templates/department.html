@@ -14,11 +14,7 @@
         <li th:text="${department.phoneNumber}"></li>
         <li th:text="${department.dateOfFormation}"></li>
         <li>
-<!--            <form th:action="@{/departments/{id}(id = ${department.id})}" th:method="post">-->
-<!--                <input type="hidden" name="_method" value="delete">-->
-<!--                <input type="submit" value="D E L E T E">-->
-<!--            </form>-->
-            <a th:href="@{/departments/delete/{id}(id = ${department.id})}">delete</a>
+            <a th:href="@{/departments/{id}/delete(id = ${department.id})}">delete</a>
         </li>
     </ul>
     <table class="employees">
@@ -31,17 +27,20 @@
             <th>E m a i l &nbsp; A d d r e s s</th>
             <th>P o s i t i o n</th>
             <th>D a t e &nbsp; o f &nbsp; E m p l o y m e n t</th>
+            <th>A c t i o n</th>
         </tr>
         <tr th:each="employee: ${department.employees}">
-            <td th:text="${employee.id}"/>
-            <td th:text="${employee.fullName}"/>
-            <td th:text="${employee.dateOfBirth}"/>
-            <td th:text="${employee.phoneNumber}"/>
-            <td th:text="${employee.emailAddress}"/>
-            <td th:text="${employee.position}"/>
-            <td th:text="${employee.dateOfEmployment}"/>
+            <td><a th:href="@{/employees/{id}(id = ${employee.id})}" th:text="${employee.id}"/></td>
+            <td><a th:href="@{/employees/{id}(id = ${employee.id})}" th:text="${employee.fullName}"/></td>
+            <td><a th:href="@{/employees/{id}(id = ${employee.id})}" th:text="${employee.dateOfBirth}"/></td>
+            <td><a th:href="@{/employees/{id}(id = ${employee.id})}" th:text="${employee.phoneNumber}"/></td>
+            <td><a th:href="@{/employees/{id}(id = ${employee.id})}" th:text="${employee.emailAddress}"/></td>
+            <td><a th:href="@{/employees/{id}(id = ${employee.id})}" th:text="${employee.position}"/></td>
+            <td><a th:href="@{/employees/{id}(id = ${employee.id})}" th:text="${employee.dateOfEmployment}"/></td>
+            <td><a th:href="@{/employees/{employeeId}/department/delete(employeeId = ${employee.id})}">delete</a></td>
         </tr>
         <tr>
+            <td></td>
             <td></td>
             <td></td>
             <td></td>

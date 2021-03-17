@@ -8,7 +8,7 @@
 <div th:replace="fragments/header :: header"/>
 <main class="content">
     <table class="employees">
-        <caption><h2>E M P L O Y E E S</h2> &nbsp; table</caption>
+        <caption><h2>E M P L O Y E E S</h2> &nbsp; which do not belong to any department</caption>
         <tr>
             <th>I D</th>
             <th>F u l l &nbsp; N a m e</th>
@@ -19,13 +19,13 @@
             <th>D a t e &nbsp; o f &nbsp; E m p l o y m e n t</th>
         </tr>
         <tr th:each="employee: ${employees}">
-            <td th:text="${employee.id}"/>
-            <td th:text="${employee.fullName}"/>
-            <td th:text="${employee.dateOfBirth}"/>
-            <td th:text="${employee.phoneNumber}"/>
-            <td th:text="${employee.emailAddress}"/>
-            <td th:text="${employee.position}"/>
-            <td th:text="${employee.dateOfEmployment}"/>
+            <td><a th:href="@{/employees/{id}(id = ${employee.id})}" th:text="${employee.id}"/></td>
+            <td><a th:href="@{/employees/{id}(id = ${employee.id})}" th:text="${employee.fullName}"/></td>
+            <td><a th:href="@{/employees/{id}(id = ${employee.id})}" th:text="${employee.dateOfBirth}"/></td>
+            <td><a th:href="@{/employees/{id}(id = ${employee.id})}" th:text="${employee.phoneNumber}"/></td>
+            <td><a th:href="@{/employees/{id}(id = ${employee.id})}" th:text="${employee.emailAddress}"/></td>
+            <td><a th:href="@{/employees/{id}(id = ${employee.id})}" th:text="${employee.position}"/></td>
+            <td><a th:href="@{/employees/{id}(id = ${employee.id})}" th:text="${employee.dateOfEmployment}"/></td>
         </tr>
         <tr>
             <td></td>

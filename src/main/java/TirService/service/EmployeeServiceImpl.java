@@ -20,13 +20,37 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     @Override
     @Transactional
-    public List<Employee> getAllEmployees() {
-        return employeeRepository.findAll();
+    public Employee getOneEmployeeById(Long id) {
+        return employeeRepository.getOne(id);
+    }
+
+    @Override
+    @Transactional
+    public List<Employee> getAllEmployeesWhichDoNotBelongToAnyDepartment() {
+        return employeeRepository.getEmployeesByDepartmentIdIsNull();
     }
 
     @Override
     @Transactional
     public void createEmployee(Employee employee) {
         employeeRepository.save(employee);
+    }
+
+    @Override
+    @Transactional
+    public void deleteEmployeeById(Long id) {
+        employeeRepository.deleteById(id);
+    }
+
+    @Override
+    @Transactional
+    public void removeEmployeeFromDepartment(Long employeeId) {
+        employeeRepository.removeEmployeeFromDepartment(employeeId);
+    }
+
+    @Override
+    @Transactional
+    public void addEmployeeToDepartment(Long employeeId, Long departmentId) {
+        employeeRepository.addEmployeeToDepartment(employeeId, departmentId);
     }
 }

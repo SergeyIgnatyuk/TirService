@@ -10,7 +10,7 @@
 <main class="content">
     <div class="container">
         <form action="#" th:action="@{/orders/new}" th:object="${order}" method="post">
-            <h3>N E W &nbsp; O R D E R S</h3>
+            <h3>N E W &nbsp; O R D E R</h3>
             <input type="text" th:field="*{service}" placeholder="Service" autofocus required/>
 
             <input type="text" th:field="*{startTime}" placeholder="Start Time: yyyy/MM/ddT00:00" autofocus required/>

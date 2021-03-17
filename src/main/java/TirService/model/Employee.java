@@ -45,7 +45,6 @@ public class Employee {
     private Date dateOfEmployment;
 
     @Column(name = "department_id")
-    @JsonIgnore
     private Long departmentId;
 
     @OneToMany(fetch = FetchType.LAZY)

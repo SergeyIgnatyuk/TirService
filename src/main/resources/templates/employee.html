@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Employee</title>
+    <link rel="stylesheet" type="text/css" href="/css/style.css" th:href="@{/css/style.css}">
+    <link rel="stylesheet" type="text/css" href="/css/newForm.css" th:href="@{/css/newForm.css}">
+</head>
+<body>
+<div th:replace="fragments/header :: header"/>
+<main class="content">
+    <h2 th:text="${employee.fullName}"></h2>
+
+    <ul class="department">
+        <li th:text="${employee.dateOfBirth}"></li>
+        <li th:text="${employee.phoneNumber}"></li>
+        <li th:text="${employee.emailAddress}"></li>
+        <li th:text="${employee.position}"></li>
+        <li th:text="${employee.dateOfEmployment}"></li>
+        <li th:switch="${employee.departmentId}">
+            <div th:case="null" class="container">
+                <form action="#" th:action="@{/employees/{id}(id = ${employee.id})}" th:object="${employee}" method="post">
+                    <input type="text" th:field="*{departmentId}" placeholder="department id" autofocus required/>
+                    <input type="submit" value="S U B M I T">
+                </form>
+            </div>
+            <span th:case="*" th:text="${employee.departmentId}"></span>
+        </li>
+    </ul>
+
+
+</main>
+<div th:replace="fragments/footer :: footer"/>
+</body>
+</html>
