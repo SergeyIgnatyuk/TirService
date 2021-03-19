@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class EmployeeServiceImpl implements EmployeeService {
@@ -18,16 +19,28 @@ public class EmployeeServiceImpl implements EmployeeService {
         this.employeeRepository = employeeRepository;
     }
 
+
     @Override
-    @Transactional
-    public Employee getOneEmployeeById(Long id) {
-        return employeeRepository.getOne(id);
+    public List<Employee> findAllEmployees() {
+        return employeeRepository.findAll()
+                .stream()
+                .sorted(((o1, o2) -> (int) (o1.getId() - o2.getId())))
+                .collect(Collectors.toList());
     }
 
     @Override
     @Transactional
     public List<Employee> getAllEmployeesWhichDoNotBelongToAnyDepartment() {
-        return employeeRepository.getEmployeesByDepartmentIdIsNull();
+        return employeeRepository.getEmployeesByDepartmentIdIsNull()
+                .stream()
+                .sorted(((o1, o2) -> (int) (o1.getId() - o2.getId())))
+                .collect(Collectors.toList());
+    }
+
+    @Override
+    @Transactional
+    public Employee getOneEmployeeById(Long id) {
+        return employeeRepository.getOne(id);
     }
 
     @Override

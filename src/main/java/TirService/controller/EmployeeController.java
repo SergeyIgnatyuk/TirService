@@ -5,6 +5,7 @@ import TirService.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.Validator;
@@ -25,9 +26,16 @@ public class EmployeeController {
     }
 
     @GetMapping
-    public String getAllEmployeesWhichDoNotBelongToAnyDepartment(ModelMap modelMap) {
-        modelMap.addAttribute("employees", employeeService.getAllEmployeesWhichDoNotBelongToAnyDepartment());
+    public String findAllEmployees(ModelMap modelMap) {
+        modelMap.addAttribute("employees", employeeService.findAllEmployees());
         return "/employees";
+    }
+
+    @GetMapping("/free/department/{departmentId}")
+    public String getAllEmployeesWhichDoNotBelongToAnyDepartment(ModelMap modelMap, @PathVariable Long departmentId) {
+        modelMap.addAttribute("freeEmployees", employeeService.getAllEmployeesWhichDoNotBelongToAnyDepartment());
+        modelMap.addAttribute("departmentId", departmentId);
+        return "/freeEmployees";
     }
 
     @GetMapping("/{id}")
@@ -59,9 +67,10 @@ public class EmployeeController {
     }
 
     @PostMapping("/{employeeId}")
-    public String addEmployeeToDepartment(@PathVariable Long employeeId, @RequestParam Long departmentId) {
+    public String addEmployeeToDepartment(@PathVariable Long employeeId, @PathVariable @RequestParam Long departmentId, ModelMap modelMap) {
+        modelMap.addAttribute("departmentId", departmentId);
         employeeService.addEmployeeToDepartment(employeeId, departmentId);
-        return "redirect:/employees";
+        return "redirect:/employees/free/department/{departmentId}";
     }
 
     @GetMapping("/{employeeId}/department/delete")

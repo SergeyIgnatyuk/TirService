@@ -8,7 +8,7 @@
 <div th:replace="fragments/header :: header"/>
 <main class="content">
     <table class="employees">
-        <caption><h2>E M P L O Y E E S</h2> &nbsp; which do not belong to any department</caption>
+        <caption><h2>E M P L O Y E E S</h2> &nbsp; table</caption>
         <tr>
             <th>I D</th>
             <th>F u l l &nbsp; N a m e</th>
@@ -17,6 +17,7 @@
             <th>E m a i l &nbsp; A d d r e s s</th>
             <th>P o s i t i o n</th>
             <th>D a t e &nbsp; o f &nbsp; E m p l o y m e n t</th>
+            <th>A c t i o n</th>
         </tr>
         <tr th:each="employee: ${employees}">
             <td><a th:href="@{/employees/{id}(id = ${employee.id})}" th:text="${employee.id}"/></td>
@@ -26,8 +27,10 @@
             <td><a th:href="@{/employees/{id}(id = ${employee.id})}" th:text="${employee.emailAddress}"/></td>
             <td><a th:href="@{/employees/{id}(id = ${employee.id})}" th:text="${employee.position}"/></td>
             <td><a th:href="@{/employees/{id}(id = ${employee.id})}" th:text="${employee.dateOfEmployment}"/></td>
+            <td><a th:href="@{/employees/{employeeId}/delete(employeeId = ${employee.id})}">delete</a></td>
         </tr>
         <tr>
+            <td></td>
             <td></td>
             <td></td>
             <td></td>

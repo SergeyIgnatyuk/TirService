@@ -5,9 +5,12 @@ import TirService.model.Employee;
 import java.util.List;
 
 public interface EmployeeService {
-    Employee getOneEmployeeById(Long id);
+
+    List<Employee> findAllEmployees();
 
     List<Employee> getAllEmployeesWhichDoNotBelongToAnyDepartment();
+
+    Employee getOneEmployeeById(Long id);
 
     void createEmployee(Employee employee);
 
