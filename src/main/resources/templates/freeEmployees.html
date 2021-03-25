@@ -9,7 +9,7 @@
 <main class="content">
 
     <table class="employees">
-        <caption><h2>E M P L O Y E E S</h2> &nbsp; which do not belong to any department</caption>
+        <caption><h2>E M P L O Y E E S</h2> &nbsp;  which do not belong to any department</caption>
         <tr>
             <th>I D</th>
             <th>F u l l &nbsp; N a m e</th>
@@ -19,32 +19,19 @@
             <th>P o s i t i o n</th>
             <th>D a t e &nbsp; o f &nbsp; E m p l o y m e n t</th>
         </tr>
-        <tr th:each="employee: ${freeEmployees}">
-<!--            <form th:id="${employee.id}" action="#" th:action="@{/employees/{id}(id = ${employee.id})}" th:object="${employee}" method="post">-->
-<!--                <input type="hidden" th:value="${departmentId}" th:attr="name='departmentId'"/>-->
-<!--            </form>-->
+        <tr th:each="employee: ${employees}">
             <td>
-                <form action="#" th:action="@{/employees/{id}(id = ${employee.id})}" th:object="${employee}" method="post">
+                <form action="#" th:action="@{/employees/{employeeId}(employeeId = ${employee.id})}" th:object="${employee}" method="post">
                     <input type="hidden" th:value="${departmentId}" th:attr="name='departmentId'"/>
                     <button type="submit" name="submit" value="value" th:text="${employee.id}"/>
                 </form>
             </td>
-<!--            <td><a th:onclick="|document.forms['${employee.id}'].submit()}" th:text="${employee.id}"/></td>-->
             <td><a th:text="${employee.fullName}"/></td>
             <td><a th:text="${employee.dateOfBirth}"/></td>
             <td><a th:text="${employee.phoneNumber}"/></td>
             <td><a th:text="${employee.emailAddress}"/></td>
             <td><a th:text="${employee.position}"/></td>
             <td><a th:text="${employee.dateOfEmployment}"/></td>
-        </tr>
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td><a th:href="@{/employees/new}">Add New</a></td>
         </tr>
     </table>
 </main>

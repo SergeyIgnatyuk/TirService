@@ -5,11 +5,11 @@ import TirService.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.Validator;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 @RequestMapping("/employees")
@@ -29,13 +29,6 @@ public class EmployeeController {
     public String findAllEmployees(ModelMap modelMap) {
         modelMap.addAttribute("employees", employeeService.findAllEmployees());
         return "/employees";
-    }
-
-    @GetMapping("/free/department/{departmentId}")
-    public String getAllEmployeesWhichDoNotBelongToAnyDepartment(ModelMap modelMap, @PathVariable Long departmentId) {
-        modelMap.addAttribute("freeEmployees", employeeService.getAllEmployeesWhichDoNotBelongToAnyDepartment());
-        modelMap.addAttribute("departmentId", departmentId);
-        return "/freeEmployees";
     }
 
     @GetMapping("/{id}")
@@ -66,16 +59,28 @@ public class EmployeeController {
         return "redirect:/employees";
     }
 
-    @PostMapping("/{employeeId}")
-    public String addEmployeeToDepartment(@PathVariable Long employeeId, @PathVariable @RequestParam Long departmentId, ModelMap modelMap) {
+    @GetMapping("/free/{departmentId}")
+    public String getAddEmployeeToDepartmentForm(@PathVariable Long departmentId, ModelMap modelMap) {
+        modelMap.addAttribute("employees", employeeService.getAllEmployeesWhichDoNotBelongToAnyDepartment());
         modelMap.addAttribute("departmentId", departmentId);
+        return "/freeEmployees";
+    }
+
+    @PostMapping("/{employeeId}")
+    public String addEmployeeToDepartment(@PathVariable Long employeeId,
+                                          @RequestParam Long departmentId,
+                                          RedirectAttributes redirectAttributes) {
+        redirectAttributes.addAttribute("departmentId", departmentId);
         employeeService.addEmployeeToDepartment(employeeId, departmentId);
-        return "redirect:/employees/free/department/{departmentId}";
+        return "redirect:/employees/free/{departmentId}";
     }
 
     @GetMapping("/{employeeId}/department/delete")
-    public String removeEmployeeFromDepartment(@PathVariable Long employeeId) {
+    public String removeEmployeeFromDepartment(@PathVariable Long employeeId,
+                                               RedirectAttributes redirectAttributes) {
+        Employee employee = employeeService.getOneEmployeeById(employeeId);
+        redirectAttributes.addAttribute("departmentId", employee.getDepartmentId());
         employeeService.removeEmployeeFromDepartment(employeeId);
-        return "redirect:/employees";
+        return "redirect:/departments/{departmentId}";
     }
 }

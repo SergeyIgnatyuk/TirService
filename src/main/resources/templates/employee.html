@@ -17,16 +17,13 @@
         <li th:text="${employee.position}"></li>
         <li th:text="${employee.dateOfEmployment}"></li>
         <li th:switch="${employee.departmentId}">
-            <div th:case="null" class="container">
-                <form action="#" th:action="@{/employees/{id}(id = ${employee.id})}" th:object="${employee}" method="post">
-                    <input type="text" th:field="*{departmentId}" placeholder="department id" autofocus required/>
-                    <input type="submit" value="S U B M I T">
-                </form>
-            </div>
-            <span th:case="*" th:text="${employee.departmentId}"></span>
+            <a th:case="null" th:href="@{/departments}">please add employee to department</a>
+            <a th:case="*" th:href="@{/departments/{departmentId}(departmentId = ${employee.departmentId})}">department</a>
+        </li>
+        <li>
+            <a th:href="@{/employees/{employeeId}/delete(employeeId = ${employee.id})}">delete</a>
         </li>
     </ul>
-
 
 </main>
 <div th:replace="fragments/footer :: footer"/>

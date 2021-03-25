@@ -11,13 +11,17 @@
     <div class="container">
         <form action="#" th:action="@{/departments/new}" th:object="${department}" method="post">
             <h3>N E W &nbsp; D E P A R T M E N T</h3>
-            <input type="text" th:field="*{name}" placeholder="Name" autofocus required/>
+            <input type="text" th:field="*{name}" placeholder="Name" autofocus/>
+            <span class="has-error" th:if="${#fields.hasErrors('name')}" th:errors="*{name}">name error</span>
 
-            <input type="text" th:field="*{description}" placeholder="Description" required/>
+            <input type="text" th:field="*{description}" placeholder="Description"/>
+            <span class="has-error" th:if="${#fields.hasErrors('description')}" th:errors="*{description}">description error</span>
 
-            <input type="text" th:field="*{phoneNumber}" placeholder="Phone Number" required/>
+            <input type="text" th:field="*{phoneNumber}" placeholder="Phone Number"/>
+            <span class="has-error" th:if="${#fields.hasErrors('phoneNumber')}" th:errors="*{phoneNumber}">phoneNumber error</span>
 
-            <input type="text" th:field="*{dateOfFormation}" placeholder="Date Of Formation: yyyy/MM/dd" required/>
+            <input type="text" th:field="*{dateOfFormation}" placeholder="Date Of Formation: yyyy/MM/dd"/>
+            <span class="has-error" th:if="${#fields.hasErrors('dateOfFormation')}" th:errors="*{dateOfFormation}">dateOfFormation error</span>
 
             <input type="submit" value="S U B M I T">
         </form>

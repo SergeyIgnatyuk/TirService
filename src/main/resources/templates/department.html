@@ -37,7 +37,7 @@
             <td><a th:href="@{/employees/{id}(id = ${employee.id})}" th:text="${employee.emailAddress}"/></td>
             <td><a th:href="@{/employees/{id}(id = ${employee.id})}" th:text="${employee.position}"/></td>
             <td><a th:href="@{/employees/{id}(id = ${employee.id})}" th:text="${employee.dateOfEmployment}"/></td>
-            <td><a th:href="@{/employees/{employeeId}/department/delete(employeeId = ${employee.id})}">delete</a></td>
+            <td><a th:href="@{/employees/{employeeId}/department/delete(employeeId = ${employee.id})}">remove from department</a></td>
         </tr>
         <tr>
             <td></td>
@@ -47,7 +47,7 @@
             <td></td>
             <td></td>
             <td></td>
-            <td><a th:href="@{/employees/free/department/{departmentId}(departmentId = ${department.id})}">Add New</a></td>
+            <td><a th:href="@{/employees/free/{departmentId}(departmentId = ${department.id})}">Add New Employee</a></td>
         </tr>
     </table>
 </div>

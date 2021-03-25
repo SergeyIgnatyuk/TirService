@@ -11,15 +11,20 @@
     <div class="container">
         <form action="#" th:action="@{/orders/new}" th:object="${order}" method="post">
             <h3>N E W &nbsp; O R D E R</h3>
-            <input type="text" th:field="*{service}" placeholder="Service" autofocus required/>
+            <input type="text" th:field="*{service}" placeholder="Service" autofocus/>
+            <span class="has-error" th:if="${#fields.hasErrors('service')}" th:errors="*{service}">service error</span>
 
-            <input type="text" th:field="*{startTime}" placeholder="Start Time: yyyy/MM/ddT00:00" autofocus required/>
+            <input type="text" th:field="*{startTime}" placeholder="Start Time: yyyy/MM/ddT00:00" autofocus/>
+            <span class="has-error" th:if="${#fields.hasErrors('startTime')}" th:errors="*{startTime}">startTime error</span>
 
-            <input type="text" th:field="*{endTime}" placeholder="End Time: yyyy/MM/ddT00:00" autofocus required/>
+            <input type="text" th:field="*{endTime}" placeholder="End Time: yyyy/MM/ddT00:00" autofocus/>
+            <span class="has-error" th:if="${#fields.hasErrors('endTime')}" th:errors="*{endTime}">endTime error</span>
 
-            <input type="text" th:field="*{vehicleId}" placeholder="Vehicle" autofocus required/>
+            <input type="text" th:field="*{vehicleId}" placeholder="Vehicle" autofocus/>
+            <span class="has-error" th:if="${#fields.hasErrors('vehicleId')}" th:errors="*{vehicleId}">vehicleId error</span>
 
-            <input type="text" th:field="*{employeeId}" placeholder="Employee" autofocus required/>
+            <input type="text" th:field="*{employeeId}" placeholder="Employee" autofocus/>
+            <span class="has-error" th:if="${#fields.hasErrors('employeeId')}" th:errors="*{employeeId}">employeeId error</span>
 
             <input type="submit" value="S U B M I T">
         </form>

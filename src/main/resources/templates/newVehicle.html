@@ -11,13 +11,17 @@
     <div class="container">
         <form action="#" th:action="@{/vehicles/new}" th:object="${vehicle}" method="post">
             <h3>N E W &nbsp; V E H I C L E</h3>
-            <input type="text" th:field="*{number}" placeholder="Number" autofocus required/>
+            <input type="text" th:field="*{number}" placeholder="Number" autofocus/>
+            <span class="has-error" th:if="${#fields.hasErrors('number')}" th:errors="*{number}">number error</span>
 
-            <input type="text" th:field="*{model}" placeholder="Model" required/>
+            <input type="text" th:field="*{model}" placeholder="Model"/>
+            <span class="has-error" th:if="${#fields.hasErrors('model')}" th:errors="*{model}">model error</span>
 
-            <input type="text" th:field="*{vin}" placeholder="VIN" required/>
+            <input type="text" th:field="*{vin}" placeholder="VIN"/>
+            <span class="has-error" th:if="${#fields.hasErrors('vin')}" th:errors="*{vin}">vin error</span>
 
-            <input type="text" th:field="*{yearOfIssue}" placeholder="Year Of Issue" required/>
+            <input type="text" th:field="*{yearOfIssue}" placeholder="Year Of Issue"/>
+            <span class="has-error" th:if="${#fields.hasErrors('yearOfIssue')}" th:errors="*{yearOfIssue}">yearOfIssue error</span>
 
             <input type="submit" value="S U B M I T">
         </form>

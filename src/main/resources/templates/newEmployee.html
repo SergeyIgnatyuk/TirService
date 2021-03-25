@@ -11,17 +11,24 @@
     <div class="container">
         <form action="#" th:action="@{/employees/new}" th:object="${employee}" method="post">
             <h3>N E W &nbsp; E M P L O Y E E</h3>
-            <input type="text" th:field="*{fullName}" placeholder="Full Name" autofocus required/>
 
-            <input type="text" th:field="*{dateOfBirth}" placeholder="Date Of Birth: yyyy/MM/dd" required/>
+            <input type="text" th:field="*{fullName}" placeholder="Full Name" autofocus/>
+            <span class="has-error" th:if="${#fields.hasErrors('fullName')}" th:errors="*{fullName}">fullName error</span>
 
-            <input type="text" th:field="*{phoneNumber}" placeholder="Phone Number" required/>
+            <input type="text" th:field="*{dateOfBirth}" placeholder="Date Of Birth: yyyy/MM/dd"/>
+            <span class="has-error" th:if="${#fields.hasErrors('dateOfBirth')}" th:errors="*{dateOfBirth}">dateOfBirth error</span>
 
-            <input type="text" th:field="*{emailAddress}" placeholder="Email Address" required/>
+            <input type="text" th:field="*{phoneNumber}" placeholder="Phone Number"/>
+            <span class="has-error" th:if="${#fields.hasErrors('phoneNumber')}" th:errors="*{phoneNumber}">phoneNumber error</span>
 
-            <input type="text" th:field="*{position}" placeholder="Position" required/>
+            <input type="text" th:field="*{emailAddress}" placeholder="Email Address"/>
+            <span class="has-error" th:if="${#fields.hasErrors('emailAddress')}" th:errors="*{emailAddress}">emailAddress error</span>
 
-            <input type="text" th:field="*{dateOfEmployment}" placeholder="Date Of Employment: yyyy/MM/dd" required/>
+            <input type="text" th:field="*{position}" placeholder="Position"/>
+            <span class="has-error" th:if="${#fields.hasErrors('position')}" th:errors="*{position}">position error</span>
+
+            <input type="text" th:field="*{dateOfEmployment}" placeholder="Date Of Employment: yyyy/MM/dd"/>
+            <span class="has-error" th:if="${#fields.hasErrors('dateOfEmployment')}" th:errors="*{dateOfEmployment}">dateOfEmployment error</span>
 
             <input type="submit" value="S U B M I T">
         </form>
